@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bowei Jiang's Portfolio</title>
+    <style>
+        /* Basic reset */
+        body, h1, h2, h3, p, figure, figcaption {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: #f4f4f4;
+        }
+        /* Container for content */
+        .container {
+            width: 90%;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+       
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #0779e4 3px solid;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        /* Navigation Styling */
+        nav {
+            float: right;
+            margin-top: 10px;
+        }
+        nav a {
+            margin-left: 20px;
+        }
+        /* Hero Image */
+        .hero {
+            height: 400px;
+            background: url('assets/Profile Pic.jpeg') no-repeat center center/cover;
+            display: flex;
+            justify-content: flex-end;  
+            align-items: center;   
+            color: #fff;
+            text-align: right;
+            padding-right: 100px;
+        }
+        .hero h1 {
+            font-size: 50px;
+        
+        }
+        /* Main content styling */
+        #main {
+            margin: 20px 0;
+        }
+
+        
+        /* Projects grid */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+            margin-top: 20px;
+        }
+        .projects img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .item {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .project button {
+            background-color: #b2d5eb;
+            border: none;
+            color: #333;
+            padding: 10px 20px;
+            text-align: left;
+            width: 100%;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .project button:hover {
+            background-color: #ddd;
+        }
+
+        .project div {
+            padding: 20px;
+            border: 1px solid #ddd;
+            display: none; /* Start with the content hidden */
+        }
+
+        .poster {
+            align-items: center;
+        }
+
+        .category {
+            margin-bottom: 20px;
+        }
+
+        .category h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            grid-gap: 20px;
+            text-align: center;
+        }
+
+        .skill-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain; 
+            margin-bottom: 10px;
+            padding: 5px; 
+            border-radius: 10px;
+        }
+
+
+        .skill-item p {
+            font-size: 14px;
+            color: #333;
+        }
+
+        #experiences {
+            background-color: #f4f4f4;  /* Light grey background for the section */
+            padding: 20px;  /* Padding around the content */
+            margin-top: 20px;  /* Space above the section */
+        }
+
+        .experience-item {
+            background-color: #fff;  /* White background for each item */
+            padding: 15px;  /* Padding inside each item */
+            margin-bottom: 20px;  /* Space between items */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);  /* Subtle shadow for 3D effect */
+            display: flex;  /* Enables flexbox layout */
+            justify-content: space-between;  /* Spaces children elements */
+            align-items: flex-start;
+        }
+        .experience-details {
+            flex: 1;  /* Takes up the remaining space */
+        }
+
+        .experience-list {
+            flex: 1;  /* Allows list to take up equal space as the details */
+            padding-left: 5px;  /* Adds padding to the list for spacing */
+            list-style: inside square;  /* Stylish bullets for responsibilities */
+        }
+
+        .experience-item h3 {
+            color: #333;  /* Dark grey for job title */
+            margin-top: 0;
+        }
+
+        .experience-item h4 {
+            color: #555;  /* Medium grey for company name */
+            margin-top: 5px;
+        }
+
+        .experience-item .date {
+            font-style: normal;
+            color: #504f4f;  /* Light grey for dates */
+            margin-bottom: 10px;
+        }
+
+        .experience-item ul {
+            list-style: inside square;  /* Stylish bullets for responsibilities */
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="#">Bowei Jiang</a></h1>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <section class="hero">
+        <h1>Bowei Jiang</h1>
+    </section>
+    <div id="main" class="container">
+        <section id="about" class="container">
+            <h2>About Me</h2>
+            <p>Hi! I'm a student at the National University of Singapore, 
+                majoring in Computer Science. I'm just starting my third year of Study, 
+                and I am looking for an internship for the Summer of 2025 to gain some
+            experience in Software Engineering. </p>
+        </section>
+        <div></div>
+        <br>
+        <section id="skills" class="container">
+            <h2>My Skills</h2>
+            <div class="category">
+                <h3>Languages</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <img src="assets/logos/java.png" alt="Java">
+                        <p>Java</p>
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/logos/python.jpeg" alt="Python">
+                        <p>Python</p>
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/logos/dart.jpeg" alt="Dart">
+                        <p>Dart</p>
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/logos/js.png" alt="Javascript">
+                        <p>Javascript</p>
+                    </div>
+                </div>
+            </div>
+            <div class="category">
+                <h3>Frontend</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <img src="assets/logos/flutter.png" alt="Flutter">
+                        <p>Flutter</p>
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/logos/html5.png" alt="HTML5">
+                        <p>HTML5</p>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="category">
+                <h3>Backend</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <img src="assets/logos/firebase.png" alt="Firebase">
+                        <p>Firebase</p>
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/logos/postgresql.png" alt="PostgreSQL">
+                        <p>PostgreSQL</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section id="projects" class="container">
+            <h2>Featured Projects</h2>
+            <div class="project">
+                <button onclick="toggleProject('projectDetails')">Feelings Overflow <i class="fas fa-chevron-up"></i></button>
+                <div id="projectDetails" style="display:block;">
+                    <figure class="poster">
+                        <img src="assets/5864 (1).png" alt="Feelings Overflow Poster" style="width:100%; max-width:600px;">
+                    </figure>  
+                    <p>This is an Mobile Application I made with my teammate using Flutter and Firebase as part of 
+                        NUS Orbital Programme 2023.</p>      
+                    <br>
+                    <p>Try out my mobile application below!</p>
+                    <p><a href="assets/Feelings Overflow.apk" download>Feelings Overflow.apk</a></p>
+                    <p>Supporting documents:</p>
+                    <p><a href="assets/Stack_underflow-MS3-README.pdf" download>Project Overview (PDF)</a></p>
+                    <p><a href="assets/Oribital Certificate.pdf" download>Orbital Programme Certification</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experiences" class="container">
+            <h2>Related Experience</h2>
+            <div class="experience-item">
+                <div class="experience-details">
+                    <img src="assets/logos/NUS SOC.png" style="max-width: 250px;"> 
+                    <h3>Teaching Assistant</h3>
+                    
+                    <p class="date">January 2024 - April 2024</p>
+                </div>
+                <ul>
+                    <li>CS2030S, Programming Methodology II (NUS Module)</li>
+                    <li>Taught Java and Object-Oriented Programming</li>
+                    <li>Graded and gave feedback on student's code</li>
+                </ul>
+            </div>
+ 
+        </section>
+        
+        
+        <section id="contact" class="container">
+            <h2>Contact Me</h2>
+            <p>Email: <a href="mailto:boweij@u.nus.edu">boweij@u.nus.edu</a></p>
+            <p>Phone: +65 91094617</p>
+        </section>
+    </div>
+
+    <script>
+        function toggleProject(elementId) {
+            var content = document.getElementById(elementId);
+            var icon = document.querySelector('.project button i');
+            if (content.style.display === "none") {
+                content.style.display = "block";
+                icon.className = 'fas fa-chevron-up'; // Change to up arrow when expanded
+            } else {
+                content.style.display = "none";
+                icon.className = 'fas fa-chevron-down'; // Change to down arrow when collapsed
+            }
+
+        }
+        </script>
+        
+</body>
+</html>
