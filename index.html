@@ -3,6 +3,7 @@
 
 <head>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bowei Jiang's Portfolio</title>
@@ -19,27 +20,31 @@
         }
 
         body {
-            font-family: "Arial", sans-serif;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            color: #333;
-            background: #f4f4f4;
+            color: #2d3436;
+            background: #f8f9fa;
         }
 
         .container {
             width: 90%;
+            max-width: 1200px;
             margin: auto;
             overflow: hidden;
             padding: 0 20px;
         }
 
         header {
-            background: #333;
+            background: linear-gradient(135deg, #2d3436 0%, #000000 100%);
             color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #0779e4 3px solid;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         header a {
@@ -47,6 +52,12 @@
             text-decoration: none;
             text-transform: uppercase;
             font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        header a:hover {
+            color: #00b894;
         }
 
         nav {
@@ -55,48 +66,204 @@
         }
 
         nav a {
-            margin-left: 20px;
+            margin-left: 30px;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #00b894;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         .hero {
-            height: 400px;
-            background: url("assets/Profile Pic.jpeg") no-repeat center center/cover;
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("assets/Profile Pic.jpeg") no-repeat center center/cover;
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
             align-items: center;
             color: #fff;
-            text-align: right;
-            padding-right: 100px;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
         }
 
         .hero h1 {
-            font-size: 50px;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.2s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+            color: #e2e8f0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: 500;
+        }
+
+        .download-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #00b894;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 18px;
+            transition: transform 0.3s ease, background 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+            margin-top: 20px;
+        }
+
+        .download-button:hover {
+            background: #00a884;
+            transform: translateY(-3px);
         }
 
         #main {
-            margin: 20px 0;
+            margin-top: 100px;
+            padding: 50px 0;
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #2d3436;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: #00b894;
+            bottom: -10px;
+            left: 0;
         }
 
         .projects {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 40px;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+        }
+
+        .project:last-child {
+            margin-bottom: 0;
+        }
+
+        .project img {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: contain;
+            margin: 0 auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project div {
+            padding: 30px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 30px;
             margin-top: 20px;
         }
 
-        .projects img {
-            width: 100%;
-            border-radius: 5px;
+        .skill-item {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .experience-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-5px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         footer {
-            background: #333;
+            background: #2d3436;
             color: #fff;
             text-align: center;
-            padding: 10px;
-            position: fixed;
-            left: 0;
-            bottom: 0;
+            padding: 20px;
+            position: relative;
             width: 100%;
         }
 
@@ -138,52 +305,6 @@
             font-size: 20px;
             color: #333;
             margin-bottom: 10px;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            grid-gap: 20px;
-            text-align: center;
-        }
-
-        .skill-item img {
-            width: 80px;
-            height: 80px;
-            object-fit: contain;
-            margin-bottom: 10px;
-            padding: 5px;
-            border-radius: 10px;
-        }
-
-        .skill-item p {
-            font-size: 14px;
-            color: #333;
-        }
-
-        #experiences {
-            background-color: #f4f4f4;
-            /* Light grey background for the section */
-            padding: 20px;
-            /* Padding around the content */
-            margin-top: 20px;
-            /* Space above the section */
-        }
-
-        .experience-item {
-            background-color: #fff;
-            /* White background for each item */
-            padding: 15px;
-            /* Padding inside each item */
-            margin-bottom: 20px;
-            /* Space between items */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            /* Subtle shadow for 3D effect */
-            display: flex;
-            /* Enables flexbox layout */
-            justify-content: space-between;
-            /* Spaces children elements */
-            align-items: flex-start;
         }
 
         .experience-details {
@@ -236,6 +357,84 @@
         .download-button:hover {
             background-color: #0056b3;
         }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+            
+            nav {
+                display: none;
+            }
+        }
+
+        .education-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        .education-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .education-logo {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+        }
+
+        .education-details {
+            flex: 1;
+        }
+
+        .education-details h3 {
+            color: #2d3436;
+            margin: 0 0 10px 0;
+            font-size: 1.5rem;
+        }
+
+        .education-details h4 {
+            color: #636e72;
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .education-details .date {
+            color: #00b894;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .education-details .gpa {
+            font-weight: 500;
+            color: #2d3436;
+        }
+
+        .education-details ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+        }
+
+        .education-details li {
+            margin-bottom: 5px;
+            color: #636e72;
+        }
+
+        #experiences {
+            margin-top: 30px;
+        }
     </style>
 </head>
 
@@ -245,6 +444,7 @@
             <h1><a href="#">Bowei Jiang</a></h1>
             <nav>
                 <a href="#skills">Skills</a>
+                <a href="#education">Education</a>
                 <a href="#projects">Projects</a>
                 <a href="#experiences">Experience</a>
                 <a href="#contact">Contact</a>
@@ -252,10 +452,10 @@
         </div>
     </header>
     <section class="hero">
-        <div>
+        <div class="hero-content">
             <h1>Hey, I'm Bowei</h1>
             <h2>Computer Science Undergraduate</h2>
-            <a href="https://drive.google.com/file/d/1MF-c65pCmIKotkka6cl27tY2DXVisqld/view?usp=drive_link"
+            <a href="https://drive.google.com/file/d/15YrKRnWhbEB2haW33EtAGoZhsWHyS6zo/view?usp=drive_link"
                  class="download-button">
                 Download Resume
             </a>
@@ -297,6 +497,10 @@
                         <img src="assets/logos/js.png" alt="Javascript" />
                         <p>Javascript</p>
                     </div>
+                    <div class="skill-item">
+                        <img src="assets/logos/swift.png" alt="Swift" />
+                        <p>Swift</p>
+                    </div>
                 </div>
             </div>
             <div class="category">
@@ -307,8 +511,12 @@
                         <p>Flutter</p>
                     </div>
                     <div class="skill-item">
-                        <img src="assets/logos/react.png" alt="Flutter" />
-                        <p>React (Learning in Progress)</p>
+                        <img src="assets/logos/swiftui.png" alt="SwiftUI" />
+                        <p>SwiftUI</p>
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/logos/uikit.png" alt="UIKit" />
+                        <p>UIKit</p>
                     </div>
                     <div class="skill-item">
                         <img src="assets/logos/html5.png" alt="HTML5" />
@@ -330,6 +538,14 @@
                     <div class="skill-item">
                         <img src="assets/logos/postgresql.png" alt="PostgreSQL" />
                         <p>PostgreSQL</p>
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/logos/aws.png" alt="AWS" />
+                        <p>AWS</p>
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/logos/dynamodb.png" alt="DynamoDB" />
+                        <p>DynamoDB</p>
                     </div>
                 </div>
             </div>
@@ -366,10 +582,7 @@
                 
                 <div id="projectDetails" style="display: block">
                     <h2>Feelings Overflow</h2>
-                    <figure class="poster">
-                        <img src="assets/5864 (1).png" alt="Feelings Overflow Poster"
-                            style="width: 100%; max-width: 600px" />
-                    </figure>
+                    <img src="assets/5864 (1).png" alt="Feelings Overflow Poster" />
                     <p>
                         This is an Mobile Application I made with my teammate using
                         Flutter and Firebase as part of NUS Orbital Programme 2023. This project has achieved Apollo Level.
@@ -398,10 +611,7 @@
                 
                 <div id="projectDetails" style="display: block">
                     <h2>Tether</h2>
-                    <figure class="poster">
-                        <img src="assets/tether.png" alt="Feelings Overflow Poster"
-                            style="width: 100%; max-width: 600px" />
-                    </figure>
+                    <img src="assets/tether.png" alt="Tether Screenshot" />
                     <p>
                         This is a Desktop application that my team and I built on as part of a school project.
                          It is an Applicant Tracking System (ATS) that is meant for HR managers. It was built using JavaFX and Java.
@@ -426,10 +636,7 @@
                 
                 <div id="projectDetails" style="display: block">
                     <h2>Jerry</h2>
-                    <figure class="poster">
-                        <img src="assets/Jerry.jpeg" alt="Jerry Screenshot"
-                            style="width: 100%; max-width: 600px" />
-                    </figure>
+                    <img src="assets/Jerry.jpeg" alt="Jerry Screenshot" />
                     <p>
                         This is a chatbot that I built on as part of a school project.
                          Built with Java, it helps a user keep track of tasks. It was then integrated in a Graphical User Interface using JavaFX.
@@ -471,6 +678,31 @@
                     <li>Taught Java and Object-Oriented Programming</li>
                     <li>Graded and gave feedback on student's code</li>
                 </ul>
+            </div>
+        </section>
+
+        <section id="education" class="container">
+            <h2>Education</h2>
+            <div class="education-item">
+                <img src="assets/logos/nus.png" alt="NUS Logo" class="education-logo">
+                <div class="education-details">
+                    <h3>National University of Singapore</h3>
+                    <h4>Bachelor of Computing in Computer Science (Honours)</h4>
+                    <p class="date">Aug 2022 - May 2026</p>
+                    <p class="gpa">GPA: 4.21/5.00</p>
+                </div>
+            </div>
+
+            <div class="education-item">
+                <img src="assets/logos/njc.png" alt="NJC Logo" class="education-logo">
+                <div class="education-details">
+                    <h3>National Junior College</h3>
+                    <h4>Singapore-Cambridge General Certificate of Education Advanced Level</h4>
+                    <p class="date">Jan 2018 - Nov 2019</p>
+                    <ul>
+                        <li>Physics (A), Chemistry (A), Mathematics (A), Economics (A), General Paper (B)</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
